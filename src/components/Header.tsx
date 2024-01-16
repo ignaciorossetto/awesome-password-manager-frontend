@@ -1,26 +1,48 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { MdMenu } from "react-icons/md";
 import { IoIosInformationCircle } from "react-icons/io";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { FaArrowDownWideShort } from "react-icons/fa6";
+import { GiOpenTreasureChest } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
     const [openMenu, setOpenMenu] = useState<boolean>(false)
+    const headerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleOutsideClick = (event: MouseEvent) => {
+          // Check if the clicked element is outside the header
+          if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+            setOpenMenu(false);
+          }
+        };
+    
+        // Attach the event listener
+        document.addEventListener("mousedown", handleOutsideClick);
+    
+        // Cleanup the event listener on component unmount
+        return () => {
+          document.removeEventListener("mousedown", handleOutsideClick);
+        };
+      }, []);
 
   return (
     <header
-    className='w-full flex-col px-3 xs:px-5 sm:px-16 py-10  bg-black text-white relative z-10'
+    ref={headerRef}
+    className='w-full flex-col px-3 xs:px-5 sm:px-16 py-10  bg-black text-white relative'
     >
         <div
         className="flex justify-between"
         >
-            <div
+            <Link
+            to={'/'}
             className="font-thin text-3xl font-mono italic"
             >
                 AwesomePm
-            </div>
+            </Link>
             <div
             className='flex gap-5 sm:gap-10 [&>button]:text-3xl [&>button]:scale-animation'
             >
@@ -76,10 +98,28 @@ const Header = () => {
                     About
                 </span>
             </div>
+            <Link
+            to={'/vault'}
+            className="flex gap-2 items-center cursor-pointer scale-animation"
+            >
+                <GiOpenTreasureChest />
+                <span>
+                    Vault
+                </span>
+            </Link>
         </div>
         }
     
     </header>
+        // {
+        //     openMenu && 
+        //     <div
+        //     className="fixed left-0 bottom-0 h-[100vh] bg-yellow-200/5 w-full z-[2]"
+        //     onClick={()=>setOpenMenu(false)}
+        //     >
+
+        //     </div>
+        // }
   )
 }
 
