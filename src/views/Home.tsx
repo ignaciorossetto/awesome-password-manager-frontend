@@ -30,7 +30,7 @@ const Home = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui facere aliquam facilis ex, ducimus.
                 </p>
             </div>
-            <div className="flex flex-col items-center gap-5 font-semibold">
+            <div className="flex flex-col items-center gap-5 font-semibold text-lg">
                 <button
                 className="w-[200px] px-5 py-3 text-center border-2 bg-black text-white rounded-lg hover-border-animation"
                 >Sign Up</button>

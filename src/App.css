@@ -6,6 +6,7 @@
 }
 
 body {
+    font-family: monospace;
     width: 100%;
     max-width: 2800px;
     align-items: center;
