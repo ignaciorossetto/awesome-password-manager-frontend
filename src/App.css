@@ -1,0 +1,14 @@
+:root{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+    width: 100%;
+    max-width: 2800px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scale-animation {
+  @apply duration-200 hover:scale-[1.2] active:scale-100 transition-all
+}
+.hover-border-animation {
+  @apply duration-200 transition-all hover:border-black hover:rounded-lg hover:text-black hover:bg-white hover:scale-105 ease-out
+}
