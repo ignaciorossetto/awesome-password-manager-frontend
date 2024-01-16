@@ -111,15 +111,6 @@ const Header = () => {
         }
     
     </header>
-        // {
-        //     openMenu && 
-        //     <div
-        //     className="fixed left-0 bottom-0 h-[100vh] bg-yellow-200/5 w-full z-[2]"
-        //     onClick={()=>setOpenMenu(false)}
-        //     >
-
-        //     </div>
-        // }
   )
 }
 

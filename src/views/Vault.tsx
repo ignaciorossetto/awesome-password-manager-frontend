@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaLongArrowAltDown } from "react-icons/fa";
 
 const Vault = () => {
