@@ -6,12 +6,12 @@ const FilterBox = () => {
         className="hidden md:block"
         >
             <div
-            className='text-2xl border-b-2 w-full border-2 border-black py-2 px-2'
+            className='text-2xl border-b-2 border-2 border-black py-2 px-2'
             >
                 Filters
             </div>
             <div
-                className='w-full w-[35%] max-w-[288px] h-fit sticky top-3 border-2 border-black min-h-[500px] px-3 text-lg border-t-0'
+                className='w-full max-w-[288px] h-fit sticky top-3 border-2 border-black min-h-[500px] px-3 text-lg border-t-0'
                 >
             <input 
             type="text"  
