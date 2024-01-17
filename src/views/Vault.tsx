@@ -1,7 +1,12 @@
 import FilterBox from "../components/FilterBox";
 import VaultCard from "../components/VaultCard";
+import { VaultItemType } from "../types/types";
+import PassArrayHook from "../hooks/PassArrayHook";
+
+
 
 const Vault = () => {
+    const {passArray, handleCreateDeletePassFc, loadingPassCards} = PassArrayHook()
   return (
     <div className='p-10 flex w-full gap-20 justify-center '>
         {/* Filter Box */}
@@ -26,13 +31,19 @@ const Vault = () => {
             className="grid grid-cols-1 gap-3 "
             >
                 {/* vaultItemCard */}
-                <VaultCard />
-                <VaultCard />
-                <VaultCard />
-                <VaultCard />
-                <VaultCard />
-                <VaultCard />
-                <VaultCard />
+                {
+                    passArray.map((e: VaultItemType)=> (
+                        <VaultCard handleCreateDeletePassFc={handleCreateDeletePassFc(e.id)} {...e} key={e.id}/>
+                    ))
+                }
+                {
+                    loadingPassCards && 
+                    <>
+                        <VaultCard type={'skeletonLoading'}/>
+                        <VaultCard type={'skeletonLoading'}/>
+                        <VaultCard type={'skeletonLoading'}/>
+                    </>
+                }
                 <VaultCard type={'empty'}/>
             </div>
         </div>
